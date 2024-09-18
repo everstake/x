@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { StakingFormInputStake } from './StakingFormInputStake';
-// import { StakingFormInputUnstake } from './StakingFormInputUnstake';
 import {
   ArrowRight,
 } from '../common/icons/index';
+
 interface StakingFormProps {
   className?: string;
 }
@@ -11,7 +11,6 @@ interface StakingFormProps {
 export const StakingForm: React.FC<StakingFormProps> = ({ className }) => {
   return (
     <div className={`bg-es-gray-gradient flex flex-col ${className}`}>
-
       <div className='flex'>
         <button className='w-1/2 h-12 uppercase text-md border-b border-b-yellow lg:h-[60px] lg:text-xl'>STAKE</button>
         <button className='w-1/2 h-12 uppercase text-md border-b border-b-gray lg:h-[60px] lg:text-xl'>UNSTAKE</button>
