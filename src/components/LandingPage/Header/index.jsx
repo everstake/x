@@ -1,34 +1,47 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, NavLink, ScrollRestoration } from 'react-router-dom';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
+        setIsVisible(false);
+      } else {
+        // if scroll up show the navbar
+        setIsVisible(true);
+      }
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
-      {/* Header */}
-      <header className="header" id="header">
-        {/* Header Announcement */}
-        <div className="header__announcement">
-          <div className="header__announcement__wrapper">
-            <p>
-              🚀 Secure Your Spot in the PillarX Testing Campaign!{' '}
-              <a href="/waitlist">Join the Waitlist</a>
-            </p>
-            <a
-              href="/waitlist"
-              className="cta cta--secondary cta--header plausible-event-name=Banner+Click"
-            >
-              <span>Join the Waitlist</span>
-            </a>
-          </div>
-        </div>
+      {/* Browser's scroll restoration  */}
+      <ScrollRestoration />
 
+      {/* Header */}
+      <header
+        className={`header ${isVisible ? '' : 'header--hidden'}`}
+        id="header"
+      >
         <div className="container">
-          <Link reloadDocument to="/" className="header__logo">
+          <Link to="/" className="header__logo">
             <img src="/landing-images/pillarXLogo.png" alt="pillar-x-logo" />
           </Link>
 

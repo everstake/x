@@ -3,73 +3,73 @@
 exports[`<Main /> renders correctly 1`] = `
 [
   <header
-    className="home_header"
+    className="header "
+    id="header"
   >
     <div
-      className="home_header__announcment"
+      className="container"
     >
-      <div
-        className="container"
+      <a
+        className="header__logo"
+        href="/"
+        onClick={[Function]}
       >
-        <div
-          className="home_header__announcment__wrapper"
-        >
-          <p>
-            🚀 Secure Your Spot in the PillarX Testing Campaign!
-          </p>
-          <a
-            className="plausible-event-name=Banner+Click"
-            href="/waitlist"
-          >
-            Join the Waitlist
-          </a>
-        </div>
-      </div>
-    </div>
-    <div
-      className="home_header__main"
-    >
-      <div
-        className="container"
+        <img
+          alt="pillar-x-logo"
+          src="/landing-images/pillarXLogo.png"
+        />
+      </a>
+      <nav
+        className="header__menu"
       >
-        <div
-          className="home_header__main__wrapper"
+        <ul
+          id="menu"
+          onClick={[Function]}
         >
-          <div
-            className="home_header__main__logo"
-          >
-            <img
-              src="/landing-images/home-logo.svg"
-            />
-          </div>
-          <div
-            className="home_header__main__menu"
-          >
+          <li>
             <a
-              href="/#developers"
+              className=""
+              href="/developers"
+              onClick={[Function]}
             >
-              For Developers
+              For dApps
             </a>
+          </li>
+          <li>
             <a
+              className=""
               href="/waitlist"
             >
               Testing Campaign
             </a>
-          </div>
-          <div
-            className="home_header__main__social"
-          >
-            <a
-              href="https://twitter.com/PX_Web3"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <img
-                src="/landing-images/home-x.svg"
-              />
-            </a>
-          </div>
-        </div>
+          </li>
+        </ul>
+        <a
+          className="header__social"
+          href="https://twitter.com/PX_Web3"
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="home-image"
+            src="/landing-images/home-x.svg"
+          />
+        </a>
+      </nav>
+      <div
+        className="header__mobile_menu"
+        onClick={[Function]}
+      >
+        <div
+          className="bar1"
+        />
+        <div
+          className="bar2"
+        />
+        <div
+          className="bar3"
+        />
       </div>
     </div>
   </header>,
@@ -77,7 +77,7 @@ exports[`<Main /> renders correctly 1`] = `
     className="home_hero"
   >
     <div
-      className="container container--fluid"
+      className="container"
     >
       <div
         className="home_hero__wrapper"
@@ -85,37 +85,25 @@ exports[`<Main /> renders correctly 1`] = `
         <div
           className="home_hero__content"
         >
-          <h1>
-            Introducing PillarX
-          </h1>
-          <p>
-            Advancing the way you connect with Web3
-          </p>
           <img
-            src="/landing-images/home-hero.png"
+            alt="PillarX logo"
+            src="/landing-images/home-px.png"
           />
         </div>
-      </div>
-    </div>
-  </section>,
-  <section
-    className="home_intro"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="home_intro__wrapper"
-      >
         <div
-          className="home_intro__content"
+          className="home_hero__signup"
         >
-          <h2>
-            What is PX?
-          </h2>
           <p>
-            PillarX is the next evolution in the Pillar Project story, built on the pillars of controlling your assets and data, PillarX will provide an unparalleled experience in interacting with the Web3 ecosystem.
+            Earn PX points and get a chance to share the $1,000 prize pool!
           </p>
+          <a
+            className="cta plausible-event-name=Waitlist+Home+Hero"
+            href="/waitlist"
+          >
+            <span>
+              Join the Waitlist!
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -229,6 +217,32 @@ exports[`<Main /> renders correctly 1`] = `
     </div>
   </section>,
   <section
+    className="home_intro"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="home_intro__wrapper"
+      >
+        <div
+          className="home_intro__content"
+        >
+          <h2>
+            What is PX?
+          </h2>
+          <p>
+            PillarX is the next evolution in the Pillar Project story, built on the pillars of controlling your assets and data, PillarX will provide an unparalleled experience in interacting with the Web3 ecosystem.
+          </p>
+          <img
+            alt="PillarX Dashboard"
+            src="/landing-images/home-hero.png"
+          />
+        </div>
+      </div>
+    </div>
+  </section>,
+  <section
     className="home_signup"
   >
     <div
@@ -321,7 +335,8 @@ exports[`<Main /> renders correctly 1`] = `
               </div>
             </div>
             <p>
-              Stay tuned! We'll be unveiling more details as we approach the official launch date. Follow us on 
+              Stay tuned! We'll be unveiling more details as we approach the official launch date. Follow us on
+               
               <a
                 href="https://twitter.com/PX_Web3"
                 rel="noreferrer"
@@ -338,7 +353,6 @@ exports[`<Main /> renders correctly 1`] = `
   </section>,
   <section
     className="home_build"
-    id="developers"
   >
     <div
       className="container"
@@ -363,7 +377,8 @@ exports[`<Main /> renders correctly 1`] = `
             className="home_build__content__right"
           >
             <h2>
-              Fill out 
+              Fill out
+               
               <a
                 className="plausible-event-name=Testing+Form"
                 href="https://form.pillarx.app/dapp-application/"
@@ -372,7 +387,8 @@ exports[`<Main /> renders correctly 1`] = `
               >
                 the form
               </a>
-               to join our groundbreaking testing campaign.
+               
+              to join our groundbreaking testing campaign.
             </h2>
           </div>
         </div>
@@ -380,6 +396,7 @@ exports[`<Main /> renders correctly 1`] = `
           className="home_build__logo"
         >
           <img
+            alt="home-logo"
             src="/landing-images/home-logo-px.svg"
           />
         </div>
@@ -387,13 +404,13 @@ exports[`<Main /> renders correctly 1`] = `
     </div>
   </section>,
   <footer
-    className="home_footer"
+    className="footer"
   >
     <div
       className="container"
     >
       <div
-        className="home_footer__wrapper"
+        className="footer__wrapper"
       >
         <a
           href="https://twitter.com/PX_Web3"
@@ -401,12 +418,12 @@ exports[`<Main /> renders correctly 1`] = `
           target="_blank"
         >
           <img
+            alt="home-image"
             src="/landing-images/home-x.svg"
           />
         </a>
       </div>
     </div>
   </footer>,
-  <div />,
 ]
 `;

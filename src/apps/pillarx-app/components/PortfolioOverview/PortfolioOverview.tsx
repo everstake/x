@@ -1,3 +1,4 @@
+import { useWalletAddress } from '@etherspot/transaction-kit';
 import { useTranslation } from 'react-i18next';
 
 // utils
@@ -8,7 +9,6 @@ import { WalletData, WalletPortfolioData } from '../../../../types/api';
 
 // images
 import BlendIcon from '../../images/blend-icon.svg';
-import DefaultLogo from '../../images/logo-unknown.png';
 import RoutingIcon from '../../images/routing-icon.svg';
 
 // components
@@ -28,9 +28,10 @@ type PortfolioOverviewProps = {
 
 const PortfolioOverview = ({ data, isDataLoading }: PortfolioOverviewProps) => {
   const [t] = useTranslation();
+  const accountAddress = useWalletAddress();
   const { data: dataPortlioOverview } = data || {};
   const dataWallet = dataPortlioOverview as WalletPortfolioData | undefined;
-  const { realized: pnl24hRealized = 0, unrealized: pnl24hUnrealized = 0 } =
+  const { percentage_change: percentageChange = 0 } =
     dataWallet?.total_pnl_history?.['24h'] || {};
 
   const numberOfTokens = dataWallet?.assets?.length || 0;
@@ -40,16 +41,11 @@ const PortfolioOverview = ({ data, isDataLoading }: PortfolioOverviewProps) => {
 
   const allBlockchainsLogos =
     dataWallet?.assets
-      ?.map((asset) => (asset.asset.logo ? asset.asset.logo : DefaultLogo))
+      ?.map((asset) => (asset.asset.logo ? asset.asset.logo : 'random-avatar'))
       .flat() || [];
 
   const numberOfBlockchains =
     getAllUniqueBlockchains(allBlockchains).length ?? 0;
-
-  const totalPnl24h = pnl24hRealized + pnl24hUnrealized;
-
-  const percentageChange =
-    (totalPnl24h / (dataWallet?.total_wallet_balance ?? 0)) * 100;
 
   if (!data || isDataLoading) {
     return (
@@ -82,7 +78,7 @@ const PortfolioOverview = ({ data, isDataLoading }: PortfolioOverviewProps) => {
       className="p-10 gap-20 tablet:p-5 mobile:p-0 mobile:bg-[#1F1D23] mobile:flex-col mobile:gap-4"
     >
       <div className="flex flex-col justify-between">
-        <WalletAddressOverview address={dataWallet?.wallet ?? ''} />
+        <WalletAddressOverview address={accountAddress ?? ''} />
         <div className="mobile:border mobile:border-medium_grey mobile:rounded-[10px] mobile:p-4 mobile:w-full">
           <Body className="text-purple_light mb-2">{t`title.totalBalance`}</Body>
           <div className="flex gap-4 items-end">
