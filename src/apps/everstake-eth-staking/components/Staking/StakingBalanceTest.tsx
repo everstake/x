@@ -16,7 +16,7 @@ export const StakingBalanceTest: React.FC<StakingBalanceTest> = () => {
     value: chain.id,
   }));
 
-  const [chainId, setChainId] = React.useState<number>(+chainOptions[0]?.value);
+  const [chainId, setChainId] = React.useState<number>(1);
   console.log(chainOptions, 'chainOptions');
   const [ethBalance, setEthBalance] = React.useState(0);
   const walletAddress = useWalletAddress();

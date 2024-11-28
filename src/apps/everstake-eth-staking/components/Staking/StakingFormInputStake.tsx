@@ -23,7 +23,7 @@ export const StakingFormInputStake: React.FC<StakingFormInputStakeProps> = ({
   maxStakingAmount = 100,
 }) => {
  
-  const formattedBalance = '0';//utils.formatEther(weiBalance);
+  const formattedBalance = '0'; //utils.formatEther(weiBalance);
   const [inputValue, setInputValue] = useState("0.1");
   const [error, setError] = useState("");
   const [touched, setTouched] = useState(false);

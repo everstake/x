@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.11.5",
     "@etherspot/prime-sdk": "1.8.1",
     "@etherspot/transaction-kit": "0.15.1",
+    "@everstake/wallet-sdk": "^0.3.70",
     "@hypelab/sdk-react": "^1.0.4",
     "@lifi/sdk": "^3.1.5",
     "@mui/icons-material": "^5.16.6",

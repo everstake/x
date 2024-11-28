@@ -10,7 +10,6 @@ import useAccountBalances from '../../../../hooks/useAccountBalances';
 import { AccountBalancesContext } from '../../../../providers/AccountBalancesProvider';
 
 export const StakingFormInputUnstake = () => {
-  const chainId = 11155111;
   const accountBalancesContext = useContext(AccountBalancesContext);
   const balances = useAccountBalances();
   const weiBalance = BigNumber.from("0xf12ef9f8eb6340").toString();
